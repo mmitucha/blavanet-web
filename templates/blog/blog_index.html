@@ -1,0 +1,48 @@
+<!-- Blog index template -->
+
+{% extends "blog/blog_base.html" %}
+{% block page_title %}Blog posts | {% endblock %}
+
+{% block blog_content %}
+
+  <div class="col-lg-9">
+
+    <h1>Newest Blog Posts</h1>
+    <hr>
+    {% for post in posts %}
+      <div class="row">
+          <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+          <p>{{ post.content| truncatewords:30 | safe }}</p>
+          <p><small>Posted: <strong>{{ post.created_at }}</strong></small></p>
+          <p><small>Author: <strong>{{ post.author }}</strong></small></p>        
+          {# <span class="label label-default">Label</span> #}
+          <hr>
+      </div><!--/row-->
+    {% empty %}
+      <div class="row">
+          <p>Sorry, no posts yet. Check back soon!</p>
+      </div>
+    {% endfor %}
+
+
+    <!-- TO-DO ! -->
+    <!-- fix pagination djnago-bootstrap-pagination did now fixed this -->
+    <div class="pagination">
+      <span class="step-links">
+        {% if posts.has_previous %}
+            <a href="?page={{ posts.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+          Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
+        </span>
+
+        {% if posts.has_next %}
+          <a href="?page={{ posts.next_page_number }}">next</a>
+        {% endif %} 
+      </span>
+    </div>
+
+  </div>
+  
+{% endblock %}

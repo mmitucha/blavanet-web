@@ -1,0 +1,49 @@
+<!-- Base template for Blog App -->
+
+{% extends "base.html" %}
+
+{% load blog_categories %}
+
+{% block page_content %}
+
+  <div class="row">
+
+    {% block blog_content %}  {% endblock %}
+
+    <div class="col-lg-3">
+
+      <div class="well">
+        <h4>Blog Search</h4>
+        <div class="input-group">
+          <input type="text" class="form-control">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+          </span>
+        </div><!-- /input-group -->
+      </div><!-- /well -->
+
+      <div class="well">
+        <h4>Popular Blog Categories</h4>
+        <div class="row">
+          <div class="col-lg-12">
+            <ul class="list-unstyled category">
+              {% get_blog_categories as categories %}
+                <!-- Do not print category if no posts in that category exists  -->
+              {% for c in categories %}
+                {% if c.posts.count > 0 %}  
+                  <li><a href="{{ c.get_absolute_url }}">{{ c }}</a></li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </div><!--col-lg-12-->
+        </div><!--row-->
+      </div><!-- well -->
+        
+      <div class="well">
+        <h4>Side Widget Well</h4>
+        <p>Bootstrap's default wells work great for side widgets! What is a widget anyways...?</p>
+      </div><!-- well -->
+    </div><!--col-->
+  </div><!--row-->
+
+{% endblock %}

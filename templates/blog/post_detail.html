@@ -1,0 +1,22 @@
+{% extends "blog/blog_base.html" %}
+{% load url from future %}
+
+{% block page_title %}{{ post.title }} | {% endblock %}
+
+{% block blog_content %}
+
+  <div class="col-lg-9">
+    <h2>{{ post.title }}</h2>
+    <p class="lead">by <a href="#">{{ post.author }}</a></p>
+    <hr>
+    <p><span class="glyphicon glyphicon-time"></span> Posted on {{ post.updated_at }}</p>
+    <hr>
+    <p class="lead">{{ post.content|safe }}</p>
+    <hr>
+    <p class="lead"><small>category:</small> <a href="{{ post.category.get_absolute_url }}">{{ post.category.title }}</a> </p>
+    <hr>
+    <p><a href="{% url 'blog:blog-index' %}">&larr; Blog list</a></p>
+  </div>
+
+{% endblock %}
+
