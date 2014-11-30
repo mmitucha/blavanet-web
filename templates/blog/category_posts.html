@@ -1,6 +1,7 @@
 <!-- Category template -->
 
 {% extends "blog/blog_base.html" %}
+{% load markdown_deux_tags %}
 {% block page_title %}Blog Categories | {% endblock %}
 
 {% block blog_content %}
@@ -14,7 +15,7 @@
     {% for post in posts %}
       <div>
         <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
-        <p>{{ post.content| truncatewords:30 | safe }}</p>
+        <p>{{ post.content| truncatewords:30 | markdown }}</p>
         <p><small>Posted: <strong>{{ post.created_at }}</strong></small></p>
         <p><small>Author: <strong>{{ post.author }}</strong></small></p>        
         {# <span class="label label-default">Label</span> #}

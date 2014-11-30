@@ -132,6 +132,7 @@ INSTALLED_APPS = (
     'blog',
     'pagedown',
     'django.contrib.flatpages',
+    'markdown_deux',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'

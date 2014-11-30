@@ -1,5 +1,6 @@
 {% extends "blog/blog_base.html" %}
 {% load url from future %}
+{% load markdown_deux_tags %}
 
 {% block page_title %}{{ post.title }} | {% endblock %}
 
@@ -11,7 +12,7 @@
     <hr>
     <p><span class="glyphicon glyphicon-time"></span> Posted on {{ post.updated_at }}</p>
     <hr>
-    <p class="lead">{{ post.content|safe }}</p>
+    <p class="lead">{{ post.content | markdown }}</p>
     <hr>
     <p class="lead"><small>category:</small> <a href="{{ post.category.get_absolute_url }}">{{ post.category.title }}</a> </p>
     <hr>
