@@ -2,7 +2,7 @@ from django.db import models
 from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
 
-# Create your models here.
+
 class Category(models.Model):
     title = models.CharField(max_length=100, unique=True, db_index=True)
     slug = models.SlugField(max_length=100, unique=True, db_index=True)
@@ -29,10 +29,11 @@ class PostManager(models.Manager):
         return(self.model.objects.filter(published=True))
 
 
-
 class Post(models.Model):
-    created_at = models.DateTimeField(auto_now_add=True, editable=False, unique=True)
-    updated_at = models.DateTimeField(auto_now=True, editable=False, unique=True)
+    created_at = models.DateTimeField(auto_now_add=True, editable=False,
+                                      unique=True)
+    updated_at = models.DateTimeField(auto_now=True, editable=False,
+                                      unique=True)
     title = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, blank=True, default='')
     content = models.TextField()

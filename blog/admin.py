@@ -4,6 +4,7 @@ from blog.models import Post, Category
 from pagedown.widgets import AdminPagedownWidget
 from django.db import models
 
+
 class PostAdmin(admin.ModelAdmin):
     formfield_overrides = {
         models.TextField: {'widget': AdminPagedownWidget},

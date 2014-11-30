@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from django.shortcuts import render, get_object_or_404
 from .models import Post, Category
@@ -32,15 +31,15 @@ def blog_index(request):
         # If page is out of range (e.g. 9999), deliver last page of results.
         posts = paginator.page(paginator.num_pages)
 
-    return render(request, 'blog/blog_index.html', {
+    return(render(request, 'blog/blog_index.html', {
         'categories': Category.objects.all(),
-        'posts': posts
-        })
+        'posts': posts}))
+
 
 def category_index(request):
-    return render(request, 'blog/category_index.html', {
-        'categories': Category.objects.all()
-        })
+    return(render(request, 'blog/category_index.html', {
+        'categories': Category.objects.all()}))
+
 
 def category_posts(request, slug):
     category = get_object_or_404(Category, slug=slug)
@@ -57,10 +56,9 @@ def category_posts(request, slug):
         # If page is out of range (e.g. 9999), deliver last page of results.
         posts = paginator.page(paginator.num_pages)
 
-    return render(request, 'blog/category_posts.html', {
+    return(render(request, 'blog/category_posts.html', {
         'category': category,
-        'posts': posts
-        })
+        'posts': posts}))
 
 
 # from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
