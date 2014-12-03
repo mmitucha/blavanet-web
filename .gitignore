@@ -38,6 +38,7 @@ nosetests.xml
 
 # SQLite database
 *.sqlite
+*.sqlite3
 
 # Django local settings
 local_settings.py
