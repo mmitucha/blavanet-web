@@ -36,6 +36,7 @@ class Post(models.Model):
                                       unique=True)
     title = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, blank=True, default='')
+    excerpt = models.TextField(blank=True)
     content = models.TextField()
     published = models.BooleanField(default=True)
     author = models.ForeignKey(User, related_name="posts")
