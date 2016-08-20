@@ -1,8 +1,25 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block page_content %}
-  <div class="jumbotron">
-    <h3>Welcome to site: </h3>
-    <p><a href="{% url 'blog:blog-index' %}" class="btn">Read blog Archive</a></p>
+  <div id="welcome">
+    <h1>OZ blava.net</h1>
+    <h2>welcome to our site</h2>
+    <p>
+      This is actually just an archive.<br>
+      But the blog is viewable.<br>
+    </p>
+    <p>
+      <a href="/blog"><img class="img-reponsive" src="{% static "images/blog.png" %}" alt="Blog" /></a>
+    </p>
   </div>
+
+
+{% comment %}
+  <div class="jumbotron">
+    <h3>Welcome to <span>OZ blava.net</span> site!</h3>
+    <p><a href="{% url 'blog:blog-index' %}" class="btn">Read blog archive</a></p>
+  </div>
+{% endcomment %}
 {% endblock %}
