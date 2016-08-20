@@ -1,10 +1,8 @@
 {% extends "base.html" %}
-{% load url from future %}
 
 {% block page_content %}
   <div class="jumbotron">
-    <h3>Welcome to my site!</h3>
-    <p><a href="{% url 'blog:blog-index' %}" class="btn">Read my blog</a></p>
+    <h3>Welcome to site: </h3>
+    <p><a href="{% url 'blog:blog-index' %}" class="btn">Read blog Archive</a></p>
   </div>
 {% endblock %}
- 
