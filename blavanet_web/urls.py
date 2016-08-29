@@ -9,6 +9,7 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', views.HomePageView.as_view(), name="home"),
     url(r'^blog/', include("blog.urls", namespace="blog")),
+    url(r'^search/', include('haystack.urls')),
 ]
 
 urlpatterns += [
