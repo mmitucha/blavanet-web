@@ -4,7 +4,7 @@ from blog.models import Post
 
 
 class PostIndex(indexes.SearchIndex, indexes.Indexable):
-    text = indexes.CharField(document=True, use_template=True)
+    text = indexes.EdgeNgramField(document=True, use_template=True)
     author = indexes.CharField(model_attr='author')
     created_at = indexes.DateTimeField(model_attr='created_at')
 
