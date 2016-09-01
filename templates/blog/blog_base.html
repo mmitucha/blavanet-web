@@ -14,11 +14,14 @@
 
       <div class="well">
         <h4>Blog Search</h4>
-        <div class="input-group">
-          <input type="text" class="form-control">
+        <div id="myButtons" class="input-group">
+          <form  method="get" action="/search/" class="navbar-search pull-left">
+              <input name="q" type="text" class="search-query" placeholder="Search">
+          </form>
+          <!--  <input name="q" action="/search/" method="get" type="text" class="form-control">
           <span class="input-group-btn">
             <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
-          </span>
+          </span> -->
         </div><!-- /input-group -->
       </div><!-- /well -->
 
@@ -30,7 +33,7 @@
               {% get_blog_categories as categories %}
                 <!-- Do not print category if no posts in that category exists  -->
               {% for c in categories %}
-                {% if c.posts.count > 0 %}  
+                {% if c.posts.count > 0 %}
                   <li><a href="{{ c.get_absolute_url }}">{{ c }}</a></li>
                 {% endif %}
               {% endfor %}
@@ -38,7 +41,7 @@
           </div><!--col-lg-12-->
         </div><!--row-->
       </div><!-- well -->
-        
+
       <div class="well">
         <h4>Side Widget Well</h4>
         <p>Bootstrap's default wells work great for side widgets! What is a widget anyways...?</p>

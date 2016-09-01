@@ -53,6 +53,9 @@ media/cache
 # Migrations
 #*/migrations
 
+# Index data
+index/whoosh*
+
 # Sublime
 *sublime-project
 *sublime-workspace

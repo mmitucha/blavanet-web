@@ -156,3 +156,6 @@ HAYSTACK_CONNECTIONS = {
         'PATH': os.path.join(BASE_DIR, "index", 'whoosh_index'),
     },
 }
+
+# Update index on model change
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
