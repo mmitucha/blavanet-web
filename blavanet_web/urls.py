@@ -2,6 +2,8 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
+from haystack.forms import SearchForm
+from haystack.views import SearchView
 
 from . import views
 
@@ -9,7 +11,7 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', views.HomePageView.as_view(), name="home"),
     url(r'^blog/', include("blog.urls", namespace="blog")),
-    url(r'^search/', include('haystack.urls')),
+    url(r'^search/', SearchView(form_class=SearchForm)),
 ]
 
 urlpatterns += [
