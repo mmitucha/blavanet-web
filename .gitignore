@@ -54,7 +54,7 @@ media/cache
 #*/migrations
 
 # Index data
-index/whoosh*
+index/*
 
 # Sublime
 *sublime-project
