@@ -13,12 +13,21 @@
         </div>
 
         {% if query %}
+          {% load highlight %}
+
             <h3>Results</h3>
 
             {% for result in page.object_list %}
-                <p>
+              <div>
+                <h3>
                     <a href="{{ result.object.get_absolute_url }}">{{ result.object.title }}</a>
+                </h3>
+                <p>
+                  {% highlight result.object.content with query html_tag "span" css_class "search_highlight" max_length 300  %}
                 </p>
+
+              </div>
+
             {% empty %}
                 <p>No results found.</p>
             {% endfor %}

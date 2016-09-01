@@ -159,3 +159,4 @@ HAYSTACK_CONNECTIONS = {
 
 # Update index on model change
 HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
+HAYSTACK_CUSTOM_HIGHLIGHTER = 'blog.templatetags.search.MyHighlighter'

@@ -63,3 +63,8 @@ div.navbar-header a.navbar-brand:hover {
 /*#welcome img:hover {
 	color: #0282D7;
 }*/
+
+span.search_highlight {
+	color: red;
+	font-size: 18px;
+}
